@@ -1,11 +1,14 @@
 package com.ElasTechProjetoFinal.model;
 
+import com.ElasTechProjetoFinal.model.Chamado;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -30,7 +33,9 @@ public class Usuario {
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")
-    private Chamado chamado;
+    private List<Chamado> chamados;
+
+
 
 
 
