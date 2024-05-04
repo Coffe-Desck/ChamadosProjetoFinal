@@ -19,7 +19,8 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(length = 255, nullable = false)
     private String nome;
@@ -31,12 +32,9 @@ public class Usuario {
     @Size(min = 8)
     private String senha;
 
+
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")
     private List<Chamado> chamados;
-
-
-
-
 
 }
