@@ -65,10 +65,16 @@ public class UsuarioService {
 
     public Usuario updateById(Long id, Usuario usuario) {
         this.findById(id);
-            usuario.setId(id);
+        usuario.setId(id);
+        Optional<Usuario> usuarioExistente = usuarioRepository.findByEmailContainingIgnoreCase(usuario.getEmail());
+        if (usuarioExistente.isPresent() && (usuarioExistente.get().getId() != usuario.getId())) {
+            throw new RuntimeException("O email ja foi cadastrado");
+        } else {
             usuario.setSenha(criptografarSenha(usuario.getSenha()));
             return usuarioRepository.save(usuario);
         }
+
+    }
 
 }
 
