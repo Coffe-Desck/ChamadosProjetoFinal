@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,5 +33,5 @@ public class Tecnico {
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")
-    private List<Chamado> chamados;
+    private Set<Chamado> chamados;
 }
