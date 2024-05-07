@@ -4,6 +4,8 @@ import com.ElasTechProjetoFinal.model.Chamado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
-public interface ChamadosRepository extends JpaRepository<Chamado, Long> {
+public interface ChamadoRepository extends JpaRepository<Chamado, UUID> {
 }
