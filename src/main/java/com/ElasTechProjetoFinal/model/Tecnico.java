@@ -30,7 +30,6 @@ public class Tecnico {
     @Size(min = 8)
     private String senha;
 
-
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")
     private Set<Chamado> chamados;

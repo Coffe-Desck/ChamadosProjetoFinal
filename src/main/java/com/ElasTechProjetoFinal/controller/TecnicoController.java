@@ -4,23 +4,22 @@ package com.ElasTechProjetoFinal.controller;
 import com.ElasTechProjetoFinal.dto.response.TecnicoResponse;
 import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.UsuarioLogin;
-import com.ElasTechProjetoFinal.service.TecnicoServise;
+import com.ElasTechProjetoFinal.service.TecnicoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/tecnico")
+@RequestMapping("/tecnicos")
 public class TecnicoController {
 
 
-    private final TecnicoServise tecnicoService;
+    private final TecnicoService tecnicoService;
 
     private final ObjectMapper mapper;
 
-    public TecnicoController(TecnicoServise tecnicoService, ObjectMapper mapper) {
+    public TecnicoController(TecnicoService tecnicoService, ObjectMapper mapper) {
         this.tecnicoService = tecnicoService;
         this.mapper = mapper;
     }
