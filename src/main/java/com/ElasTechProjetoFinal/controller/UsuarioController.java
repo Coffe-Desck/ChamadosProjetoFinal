@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -29,6 +29,11 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public Usuario findById(@PathVariable Long id) {
         return this.usuarioService.findById(id);
+    }
+
+    @GetMapping("/todosusuarios")
+    public List<Usuario> findAll() {
+        return this.usuarioService.findAll();
     }
     @DeleteMapping("/deletar/{id}")
     public Usuario deleteById(@PathVariable Long id) {

@@ -30,7 +30,7 @@ public class Usuario {
     private String email;
 
     @Column(length = 255, nullable = false)
-    @Size(min = 8)
+    @Size(min = 8, message = "A senha deve ter no minimo 8 caracteres")
     private String senha;
 
 
