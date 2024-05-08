@@ -39,7 +39,7 @@ public class TecnicoController {
     @PutMapping("/alterar/{id}")
     public ResponseEntity<TecnicoResponse> updateById(@PathVariable @Valid Long id, @RequestBody Tecnico tecnico) {
          tecnicoService.updateById(id, tecnico);
-         TecnicoResponse resposta = new TecnicoResponse();
+         TecnicoResponse resposta = new TecnicoResponse();pit
          return ResponseEntity.accepted().body(resposta);
     }
 
