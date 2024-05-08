@@ -40,7 +40,6 @@ public class TecnicoController {
     public ResponseEntity<TecnicoResponse> updateById(@PathVariable @Valid Long id, @RequestBody Tecnico tecnico) {
          tecnicoService.updateById(id, tecnico);
          TecnicoResponse resposta = new TecnicoResponse();
-
          return ResponseEntity.accepted().body(resposta);
     }
 
