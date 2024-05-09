@@ -16,6 +16,7 @@ import java.util.UUID;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @RequestMapping("/usuarios")
 @Tag(name = "Usuários")
@@ -56,6 +57,7 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
+/*
 
     @Operation(summary = "Atualiza um usuário pelo ID", method = "PUT")
     @PatchMapping("/{id}")
@@ -63,7 +65,17 @@ public class UsuarioController {
         Usuario updatedUsuario = usuarioService.updateById(id, usuario);
         UsuarioResponse resposta = mapper.convertValue(updatedUsuario, UsuarioResponse.class);
         return ResponseEntity.ok(resposta);
+        
+    @GetMapping("/todosusuarios")
+    public List<Usuario> findAll() {
+        return this.usuarioService.findAll();
     }
+    @DeleteMapping("/deletar/{id}")
+    public Usuario deleteById(@PathVariable Long id) {
+        return this.usuarioService.deleteById(id);
+
+    }
+  */
 
     @Operation(summary = "Busca um usuário pelo ID", method = "GET")
     @GetMapping("/{id}")

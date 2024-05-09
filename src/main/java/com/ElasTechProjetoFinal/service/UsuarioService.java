@@ -53,7 +53,9 @@ public class UsuarioService {
     }
 
     public List<Usuario> findAll() {
-        return usuarioRepository.findAll();
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios;
+
     }
 
     public Usuario findById(Long id) {

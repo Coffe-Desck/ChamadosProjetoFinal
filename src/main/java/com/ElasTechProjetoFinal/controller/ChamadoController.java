@@ -49,7 +49,6 @@ public class ChamadoController {
                 .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
                         chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino()))
                 .collect(Collectors.toList());
-
         return ResponseEntity.ok(chamadoResponses);
     }
 

@@ -7,10 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Setter
@@ -43,5 +39,9 @@ public class Chamado {
     @Column(name= "data_termino")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String dataTermino;
+
+    @ManyToOne
+    @JoinColumn(name = "setor_id")
+    private Setor setor1;
 
 }
