@@ -1,5 +1,6 @@
 package com.ElasTechProjetoFinal.service;
 
+import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.Usuario;
 import com.ElasTechProjetoFinal.model.UsuarioLogin;
 import com.ElasTechProjetoFinal.repository.UsuarioRepository;
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UsuarioService {
@@ -49,6 +52,10 @@ public class UsuarioService {
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
+    public List<Usuario> findAll() {
+        return usuarioRepository.findAll();
+    }
+
     public Usuario findById(Long id) {
         Optional<Usuario> resultado = this.usuarioRepository.findById(id);
         if(resultado.isEmpty()) {
@@ -73,7 +80,6 @@ public class UsuarioService {
             usuario.setSenha(criptografarSenha(usuario.getSenha()));
             return usuarioRepository.save(usuario);
         }
-
     }
 
 }

@@ -8,6 +8,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/admins")
 public class AdminController {
@@ -15,7 +17,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("/cadastro")
+    @PostMapping()
     public Admin save(@RequestBody @Valid Admin admin) {
         return this.adminService.save(admin);
     }
@@ -26,7 +28,7 @@ public class AdminController {
         return usuarioAutenticado;
     }
 
-    @PutMapping("/alterar/{id}")
+    @PatchMapping("/{id}")
     public Admin updateById(@PathVariable @Valid Long id, @RequestBody Admin admin) {
         return this.adminService.updateById(id, admin);
     }
