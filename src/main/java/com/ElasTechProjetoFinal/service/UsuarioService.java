@@ -1,5 +1,6 @@
 package com.ElasTechProjetoFinal.service;
 
+import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.Usuario;
 import com.ElasTechProjetoFinal.model.UsuarioLogin;
 import com.ElasTechProjetoFinal.repository.UsuarioRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UsuarioService {
@@ -53,6 +55,7 @@ public class UsuarioService {
     public List<Usuario> findAll() {
         List<Usuario> usuarios = usuarioRepository.findAll();
         return usuarios;
+
     }
 
     public Usuario findById(Long id) {
@@ -79,7 +82,6 @@ public class UsuarioService {
             usuario.setSenha(criptografarSenha(usuario.getSenha()));
             return usuarioRepository.save(usuario);
         }
-
     }
 
 }

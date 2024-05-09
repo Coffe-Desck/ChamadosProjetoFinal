@@ -49,7 +49,6 @@ public class ChamadoController {
                 .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
                         chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino()))
                 .collect(Collectors.toList());
-
         return ResponseEntity.ok(chamadoResponses);
     }
 
@@ -86,25 +85,4 @@ public class ChamadoController {
         return ResponseEntity.noContent().build();
     }
 
-}
-
-
-    public List<Chamado> findAll() {
-        return List.of();
-    }
-
-
-    public Chamado findById(UUID id) {
-        return null;
-    }
-
-
-    public Chamado update(UUID id, Map<String, Object> params) {
-        return null;
-    }
-
-
-    public void delete(UUID id) {
-
-    }
 }

@@ -1,6 +1,5 @@
 package com.ElasTechProjetoFinal.model;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,7 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 @Getter
 @NoArgsConstructor
 public enum EnumRole implements GrantedAuthority {
-    ADMIN("ROLE_ADMIN"),
+  
+   ADMIN("ROLE_ADMIN"),
     USER("ROLE_USER"),
     TECHNICIAN("ROLE_TECHNICIAN");
 

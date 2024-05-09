@@ -6,9 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface AdminRepository extends JpaRepository<Admin, Long> {
+public interface AdminRepository extends JpaRepository<Admin, UUID> {
     @Query("SELECT admin FROM Admin admin WHERE admin.email = :email")
     Optional<Admin> findByEmailContainingIgnoreCase(String email);
 }

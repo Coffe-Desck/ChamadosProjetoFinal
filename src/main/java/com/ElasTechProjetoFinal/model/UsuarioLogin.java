@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,4 +17,5 @@ public class UsuarioLogin {
     private String nome;
     private String email;
     private String senha;
+
 }

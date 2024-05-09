@@ -5,11 +5,16 @@ import com.ElasTechProjetoFinal.dto.response.TecnicoResponse;
 import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.UsuarioLogin;
 import com.ElasTechProjetoFinal.service.TecnicoService;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/tecnicos")
 @Tag(name = "Tecnicos")
