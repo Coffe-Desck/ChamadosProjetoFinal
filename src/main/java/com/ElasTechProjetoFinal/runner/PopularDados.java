@@ -1,5 +1,6 @@
-package com.ElasTechProjetoFinal.popularDados;
+package com.ElasTechProjetoFinal.runner;
 import com.ElasTechProjetoFinal.model.Admin;
+import com.ElasTechProjetoFinal.model.Chamado;
 import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.Usuario;
 import com.ElasTechProjetoFinal.repository.AdminRepository;
@@ -16,7 +17,7 @@ import java.util.Optional;
 
 
 @Configuration
-public class Runner implements CommandLineRunner {
+public class PopularDados implements CommandLineRunner {
 
     private final AdminRepository adminRepository;
     private final UsuarioRepository usuarioRepository;
@@ -25,10 +26,10 @@ public class Runner implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
-    public Runner(AdminRepository adminRepository,
-                    UsuarioRepository usuarioRepository,
-                    TecnicoRepository tecnicoRepository,
-                    ChamadoRepository chamadoRepository) {
+    public PopularDados(AdminRepository adminRepository,
+                        UsuarioRepository usuarioRepository,
+                        TecnicoRepository tecnicoRepository,
+                        ChamadoRepository chamadoRepository) {
         this.adminRepository = adminRepository;
         this.usuarioRepository = usuarioRepository;
         this.tecnicoRepository = tecnicoRepository;
@@ -131,6 +132,27 @@ public class Runner implements CommandLineRunner {
             tecnicoRepository.save(tecnico3.get());
         }
             //Tecnico---------------------------------
+
+        //Chamados---------------------------------------
+        Chamado chamado1 = new Chamado();
+        chamado1.setTitulo("Problema na impressora");
+        chamado1.setDescricao("A impressora não está imprimindo");
+        chamado1.setSetor("TI");
+        chamado1.setPrioridade("Alta");
+        chamado1.setDataInicio("2024-05-11 09:00");
+        chamado1.setDataTermino("2024-05-11 09:30");
+        chamadoRepository.save(chamado1);
+
+        Chamado chamado2 = new Chamado();
+        chamado2.setTitulo("Problema no software");
+        chamado2.setDescricao("O software está travando constantemente");
+        chamado2.setSetor("Desenvolvimento");
+        chamado2.setPrioridade("Média");
+        chamado2.setDataInicio("2024-05-10 14:00");
+        chamado2.setDataTermino("2024-05-10 15:30");
+        chamadoRepository.save(chamado2);
+        //Chamados---------------------------------------
+
 
     }
 
