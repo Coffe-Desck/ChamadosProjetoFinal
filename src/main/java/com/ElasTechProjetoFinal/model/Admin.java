@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -36,5 +34,12 @@ public class Admin {
     @JoinColumn(name = "chamadoId")
     private Set<Chamado> chamados;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "clientes_Id")
+    private Set<Usuario> usuarios;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tecnicos_Id")
+    private Set<Tecnico> tecnicos;
 
 }

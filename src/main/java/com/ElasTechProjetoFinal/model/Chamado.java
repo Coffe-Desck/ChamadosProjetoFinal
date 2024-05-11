@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -40,8 +42,14 @@ public class Chamado {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String dataTermino;
 
-    @ManyToOne
-    @JoinColumn(name = "setor_id")
-    private Setor setor1;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tecnicos_id")
+    private List<Tecnico> tecnicos;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "clientes_id")
+    private List<Usuario> clientes;
+
 
 }

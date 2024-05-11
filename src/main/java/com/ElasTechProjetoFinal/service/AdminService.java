@@ -1,13 +1,14 @@
 package com.ElasTechProjetoFinal.service;
 
 
-import com.ElasTechProjetoFinal.model.Admin;
-import com.ElasTechProjetoFinal.model.UsuarioLogin;
+import com.ElasTechProjetoFinal.model.*;
 import com.ElasTechProjetoFinal.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -21,7 +22,7 @@ public class AdminService {
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
         if (adminExistente.isPresent()) {
             throw new RuntimeException("O email ja foi cadastrado");
-        }else {
+        } else {
             admin.setSenha(criptografarSenha(admin.getSenha()));
             return adminRepository.save(admin);
         }
@@ -32,9 +33,9 @@ public class AdminService {
         return encoder.encode(senha);
     }
 
-    public UsuarioLogin autenticarUsuario(UsuarioLogin usuarioLogin){
+    public UsuarioLogin autenticarUsuario(UsuarioLogin usuarioLogin) {
         Optional<Admin> admin = adminRepository.findByEmailContainingIgnoreCase(usuarioLogin.getEmail());
-        if(admin.isPresent()) {
+        if (admin.isPresent()) {
             if (compararSenhas(usuarioLogin.getSenha(), admin.get().getSenha())) {
                 usuarioLogin.setId(admin.get().getId());
                 usuarioLogin.setEmail(admin.get().getEmail());
@@ -51,8 +52,18 @@ public class AdminService {
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
+    public Admin findById(Long id) {
+        Optional<Admin> resultado = this.adminRepository.findById(id);
+        if (resultado.isEmpty()) {
+            throw new RuntimeException(" O técnico não foi encontrado");
+        } else {
+            return resultado.get();
+        }
+    }
+
+
     public Admin updateById(Long id, Admin admin) {
-        //this.findById(id);
+        this.findById(id);
         admin.setId(id);
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
         if (adminExistente.isPresent() && (adminExistente.get().getId() != admin.getId())) {
@@ -61,6 +72,6 @@ public class AdminService {
             admin.setSenha(criptografarSenha(admin.getSenha()));
             return adminRepository.save(admin);
         }
-
     }
+
 }
