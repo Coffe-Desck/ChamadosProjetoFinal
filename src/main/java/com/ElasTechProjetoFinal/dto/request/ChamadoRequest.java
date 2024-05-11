@@ -18,7 +18,7 @@ public class ChamadoRequest {
     private String titulo;
 
     @NotNull
-    @JsonProperty("descicao")
+    @JsonProperty("descricao")
     private String descricao;
 
     @NotNull

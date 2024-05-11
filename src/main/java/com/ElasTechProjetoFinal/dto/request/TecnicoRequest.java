@@ -26,6 +26,6 @@ public class TecnicoRequest {
     private String senha;
 
     @JsonProperty("chamados")
-    private Set<Chamado> chamado;
+   private Set<Chamado> chamado;
 
 }
