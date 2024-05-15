@@ -1,6 +1,7 @@
 package com.ElasTechProjetoFinal.service;
 
 import com.ElasTechProjetoFinal.model.Chamado;
+import com.ElasTechProjetoFinal.model.EnumSetor;
 import com.ElasTechProjetoFinal.repository.ChamadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,13 +45,24 @@ public class ChamadoService {
             chamado.setDescricao((String) params.get("descricao"));
         }
         if(params.containsKey("setor")) {
-            chamado.setSetor((String) params.get("setor"));
+            String setorString = (String) params.get("setor");
+            EnumSetor setor = getEnumSetorFromString(setorString);
+            chamado.setSetor(setor);
         }
         if(params.containsKey("prioridade")) {
             chamado.setPrioridade((String) params.get("prioridade"));
         }
 
         return chamadoRepository.save(chamado);
+    }
+
+    private EnumSetor getEnumSetorFromString(String setorString) {
+        for(EnumSetor setor : EnumSetor.values()) {
+            if(setor.name().equalsIgnoreCase(setorString)) {
+                return setor;
+            }
+        }
+        throw new RuntimeException("Setor Inválido: " + setorString);
     }
 
     public Chamado deleteById(UUID id) {
