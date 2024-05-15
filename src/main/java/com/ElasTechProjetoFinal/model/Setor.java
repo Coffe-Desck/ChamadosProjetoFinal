@@ -19,5 +19,5 @@ public class Setor {
     private Long id;
 
     @Column(length = 255, nullable = false)
-    private String setor;
+    private String nome;
 }

@@ -1,6 +1,7 @@
 package com.ElasTechProjetoFinal.model;
 
 import com.ElasTechProjetoFinal.model.Chamado;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -29,17 +30,15 @@ public class Usuario {
     @Column(length = 255, nullable = false)
     private String email;
 
-    @Enumerated
-    @Column(length = 50)
-    private EnumRole role;
-
     @Column(length = 255, nullable = false)
     @Size(min = 8, message = "A senha deve ter no minimo 8 caracteres")
     private String senha;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 50, nullable = false)
+    private EnumRole role;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "chamadoId")
-    private Set<Chamado> chamados;
-
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
+    private List<Chamado> chamados;
 }

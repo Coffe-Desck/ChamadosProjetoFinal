@@ -10,7 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface SetorRepository extends JpaRepository<Setor, Long> {
-    @Query("SELECT setor FROM Setor setor WHERE setor.setor = :setor")
-    Optional<Setor> findBySetorContainingIgnoreCase(String setor);
+    @Query("SELECT setor FROM Setor setor WHERE setor.nome = :nome")
+    Optional<Setor> findByNomeContainingIgnoreCase(String nome);
 
 }
+

@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/usuarios")
 @Tag(name = "Usuários")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
     @Autowired
@@ -36,7 +37,7 @@ public class UsuarioController {
     }
 
     @Operation(summary = "Cria um usuário", method = "POST")
-    @PostMapping()
+    @PostMapping("/cadastrar")
     public ResponseEntity<Usuario> save(@RequestBody @Valid Usuario usuario) {
         Usuario savedUsuario = usuarioService.save(usuario);
         emailService.enviarEmail(usuario.getEmail());
@@ -63,7 +64,6 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
-/*
 
     @Operation(summary = "Atualiza um usuário pelo ID", method = "PUT")
     @PatchMapping("/{id}")
@@ -71,17 +71,9 @@ public class UsuarioController {
         Usuario updatedUsuario = usuarioService.updateById(id, usuario);
         UsuarioResponse resposta = mapper.convertValue(updatedUsuario, UsuarioResponse.class);
         return ResponseEntity.ok(resposta);
-        
-    @GetMapping("/todosusuarios")
-    public List<Usuario> findAll() {
-        return this.usuarioService.findAll();
-    }
-    @DeleteMapping("/deletar/{id}")
-    public Usuario deleteById(@PathVariable Long id) {
-        return this.usuarioService.deleteById(id);
 
     }
-  */
+
 
     @Operation(summary = "Busca um usuário pelo ID", method = "GET")
     @GetMapping("/{id}")

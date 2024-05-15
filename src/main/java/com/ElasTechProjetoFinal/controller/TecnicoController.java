@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/tecnicos")
 @Tag(name = "Tecnicos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TecnicoController {
 
     private final TecnicoService tecnicoService;
@@ -36,7 +37,7 @@ public class TecnicoController {
     }
 
     @Operation(summary = "Realiza o login de um técnico", method = "POST")
-    @PostMapping("/login")
+    @PostMapping("/logar")
     public ResponseEntity<UsuarioLogin> login(@RequestBody @Valid UsuarioLogin usuarioLogin) {
         UsuarioLogin usuarioAutenticado = tecnicoService.autenticarUsuario(usuarioLogin);
         return ResponseEntity.ok(usuarioAutenticado);

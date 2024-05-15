@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/admins")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AdminController {
 
     @Autowired
@@ -35,6 +36,7 @@ public class AdminController {
         UsuarioLogin usuarioAutenticado = adminService.autenticarUsuario(usuarioLogin);
         return usuarioAutenticado;
     }
+
 
 //    @GetMapping("/listarUsuarios")
 //    public List<Usuario> findAll() {

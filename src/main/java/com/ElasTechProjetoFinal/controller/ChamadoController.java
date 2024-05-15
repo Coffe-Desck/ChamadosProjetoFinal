@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/chamados")
 @Tag(name = "Chamados")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ChamadoController {
 
     private final ChamadoService chamadoService;
@@ -46,8 +46,8 @@ public class ChamadoController {
     public ResponseEntity<List<ChamadoResponse>> findAll() {
         List<Chamado> chamados = chamadoService.findAll();
         List<ChamadoResponse> chamadoResponses = chamados.stream()
-                .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
-                        chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino()))
+                .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+                        chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(), chamado.getUsuario()))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(chamadoResponses);
     }
@@ -57,8 +57,8 @@ public class ChamadoController {
     public ResponseEntity<ChamadoResponse> findById(@PathVariable UUID id) {
         Chamado chamado = chamadoService.findById(id);
         if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
-                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino());
+            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(), chamado.getUsuario());
             return ResponseEntity.ok(chamadoResponse);
         } else {
             return ResponseEntity.notFound().build();
@@ -70,8 +70,8 @@ public class ChamadoController {
     public ResponseEntity<ChamadoResponse> update(@PathVariable UUID id, @RequestBody Map<String, Object> params) {
         Chamado chamado = chamadoService.update(id, params);
         if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
-                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino());
+            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(),chamado.getUsuario());
             return ResponseEntity.accepted().body(chamadoResponse);
         } else {
             return ResponseEntity.notFound().build();

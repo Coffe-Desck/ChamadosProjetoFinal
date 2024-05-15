@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface PrioridadeRepository extends JpaRepository<Prioridade, Long> {
-    @Query("SELECT prioridade FROM Prioridade prioridade WHERE prioridade.prioridade = :prioridade")
-    Optional<Prioridade> findByPrioridadeContainingIgnoreCase(String prioridade);
+    @Query("SELECT prioridade FROM Prioridade prioridade WHERE prioridade.nome = :nome")
+    Optional<Prioridade> findByNameContainingIgnoreCase(String nome);
 }

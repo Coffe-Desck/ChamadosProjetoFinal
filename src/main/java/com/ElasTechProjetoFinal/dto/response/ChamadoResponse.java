@@ -1,5 +1,8 @@
 package com.ElasTechProjetoFinal.dto.response;
 
+import com.ElasTechProjetoFinal.model.Prioridade;
+import com.ElasTechProjetoFinal.model.Setor;
+import com.ElasTechProjetoFinal.model.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,9 +19,10 @@ public class ChamadoResponse {
     private UUID Id;
     private String titulo;
     private String descricao;
-    private String setor;
-    private String prioridade;
+    private Setor setor;
+    private Prioridade prioridade;
     private String dataInicio;
     private String dataTermino;
+    private Usuario usuario;
 
 }

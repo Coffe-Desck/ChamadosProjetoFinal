@@ -29,6 +29,9 @@ public class Admin {
     @Size(min = 8)
     private String senha;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 50, nullable = false)
+    private EnumRole role;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")

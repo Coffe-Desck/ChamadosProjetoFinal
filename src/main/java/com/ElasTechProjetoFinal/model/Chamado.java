@@ -1,14 +1,17 @@
 package com.ElasTechProjetoFinal.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.List;
+
 import java.util.UUID;
 
 @Setter
@@ -28,13 +31,6 @@ public class Chamado {
     @Column(length = 500, nullable = false )
     private String descricao;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 100, nullable = false )
-    private EnumSetor setor;
-
-    @Column(length = 100, nullable = false )
-    private String prioridade;
-
     @Column(name= "data_inicio")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String dataInicio;
@@ -44,13 +40,21 @@ public class Chamado {
     private String dataTermino;
 
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tecnicos_id")
-    private List<Tecnico> tecnicos;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientes_id")
-    private List<Usuario> clientes;
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
+    private Tecnico tecnico;
 
+
+    @ManyToOne
+    @JoinColumn(name = "setor_id")
+    private Setor setor;
+
+    @ManyToOne
+    @JoinColumn(name = "prioridade_id")
+    private Prioridade prioridade;
 
 }

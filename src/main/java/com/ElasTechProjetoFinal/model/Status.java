@@ -20,5 +20,5 @@ public class Status {
     private Long id;
 
     @Column(length = 255, nullable = false)
-    private String setor;
+    private String nome;
 }
