@@ -29,6 +29,10 @@ public class Usuario {
     @Column(length = 255, nullable = false)
     private String email;
 
+    @Enumerated
+    @Column(length = 50)
+    private EnumRole role;
+
     @Column(length = 255, nullable = false)
     @Size(min = 8, message = "A senha deve ter no minimo 8 caracteres")
     private String senha;

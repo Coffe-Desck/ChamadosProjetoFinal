@@ -1,10 +1,10 @@
 package com.ElasTechProjetoFinal.controller;
 
 
-import com.ElasTechProjetoFinal.model.Admin;
-import com.ElasTechProjetoFinal.model.Usuario;
-import com.ElasTechProjetoFinal.model.UsuarioLogin;
+import com.ElasTechProjetoFinal.model.*;
 import com.ElasTechProjetoFinal.service.AdminService;
+import com.ElasTechProjetoFinal.service.ChamadoService;
+import com.ElasTechProjetoFinal.service.TecnicoService;
 import com.ElasTechProjetoFinal.service.UsuarioService;
 
 import jakarta.validation.Valid;
@@ -20,6 +20,10 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private TecnicoService tecnicoService;
+    @Autowired
+    private ChamadoService chamadoService;
 
     @PostMapping()
     public Admin save(@RequestBody @Valid Admin admin) {
@@ -32,15 +36,24 @@ public class AdminController {
         return usuarioAutenticado;
     }
 
-    @GetMapping("/listarUsuarios")
-    public List<Usuario> findAll() {
-        return this.usuarioService.findAll();
-    }
-
-
-    @PatchMapping("/{id}")
-    public Admin updateById(@PathVariable @Valid Long id, @RequestBody Admin admin) {
-        return this.adminService.updateById(id, admin);
-    }
+//    @GetMapping("/listarUsuarios")
+//    public List<Usuario> findAll() {
+//        return this.usuarioService.findAll();
+//    }
+//
+//    @GetMapping("/listarTecnicos")
+//    public List<Tecnico> findAll() { return this.tecnicoService.findAll();
+//    }
+//
+//
+//    @GetMapping("/listarChamados")
+//    public List<Chamado> findAll() { return this.chamadoService.findAll();
+//    }
+//
+//
+//    @PatchMapping("/{id}")
+//    public Admin updateById(@PathVariable @Valid Long id, @RequestBody Admin admin) {
+//        return this.adminService.updateById(id, admin);
+//    }
 
 }

@@ -3,6 +3,7 @@ package com.ElasTechProjetoFinal.service;
 
 import com.ElasTechProjetoFinal.model.*;
 import com.ElasTechProjetoFinal.repository.AdminRepository;
+import com.ElasTechProjetoFinal.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,13 @@ public class AdminService {
 
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private UsuarioService usuarioService;
+    @Autowired
+    private TecnicoService tecnicoService;
+    @Autowired
+    private ChamadoService chamadoService;
+    private UsuarioRepository usuarioRepository;
 
     public Admin save(Admin admin) {
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
@@ -52,18 +60,8 @@ public class AdminService {
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
-    public Admin findById(Long id) {
-        Optional<Admin> resultado = this.adminRepository.findById(id);
-        if (resultado.isEmpty()) {
-            throw new RuntimeException(" O técnico não foi encontrado");
-        } else {
-            return resultado.get();
-        }
-    }
-
-
-    public Admin updateById(Long id, Admin admin) {
-        this.findById(id);
+    public Admin update(Long id, Admin admin) {
+//        this.findById(id);
         admin.setId(id);
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
         if (adminExistente.isPresent() && (adminExistente.get().getId() != admin.getId())) {
@@ -73,5 +71,14 @@ public class AdminService {
             return adminRepository.save(admin);
         }
     }
+
+    public Optional<Usuario> findUserByID(Long id) {
+        return usuarioRepository.findById(id);
+
+    }
+
+
+
+
 
 }

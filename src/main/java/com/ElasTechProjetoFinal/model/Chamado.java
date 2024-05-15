@@ -28,8 +28,9 @@ public class Chamado {
     @Column(length = 500, nullable = false )
     private String descricao;
 
-    @Column(length = 255, nullable = false )
-    private String setor;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 100, nullable = false )
+    private EnumSetor setor;
 
     @Column(length = 100, nullable = false )
     private String prioridade;

@@ -1,5 +1,6 @@
 package com.ElasTechProjetoFinal.service;
 
+import com.ElasTechProjetoFinal.model.EnumRole;
 import com.ElasTechProjetoFinal.model.Tecnico;
 import com.ElasTechProjetoFinal.model.Usuario;
 import com.ElasTechProjetoFinal.model.UsuarioLogin;
@@ -24,6 +25,7 @@ public class UsuarioService {
             throw new RuntimeException("O email ja foi cadastrado");
         }else {
         usuario.setSenha(criptografarSenha(usuario.getSenha()));
+            usuario.setRole(EnumRole.USER);
             return usuarioRepository.save(usuario);
         }
     }

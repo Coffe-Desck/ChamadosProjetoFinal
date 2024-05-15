@@ -46,7 +46,7 @@ public class ChamadoController {
     public ResponseEntity<List<ChamadoResponse>> findAll() {
         List<Chamado> chamados = chamadoService.findAll();
         List<ChamadoResponse> chamadoResponses = chamados.stream()
-                .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+                .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
                         chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino()))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(chamadoResponses);
@@ -57,7 +57,7 @@ public class ChamadoController {
     public ResponseEntity<ChamadoResponse> findById(@PathVariable UUID id) {
         Chamado chamado = chamadoService.findById(id);
         if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
                     chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino());
             return ResponseEntity.ok(chamadoResponse);
         } else {
@@ -70,7 +70,7 @@ public class ChamadoController {
     public ResponseEntity<ChamadoResponse> update(@PathVariable UUID id, @RequestBody Map<String, Object> params) {
         Chamado chamado = chamadoService.update(id, params);
         if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
+            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor().toString(),
                     chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino());
             return ResponseEntity.accepted().body(chamadoResponse);
         } else {
