@@ -39,7 +39,6 @@ public class Chamado {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String dataTermino;
 
-
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
@@ -48,10 +47,9 @@ public class Chamado {
     @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
 
-
-    @ManyToOne
-    @JoinColumn(name = "setor_id")
-    private Setor setor;
+    @Enumerated(EnumType.STRING)
+    @JoinColumn(name = "setor")
+    private EnumSetor setor;
 
     @ManyToOne
     @JoinColumn(name = "prioridade_id")

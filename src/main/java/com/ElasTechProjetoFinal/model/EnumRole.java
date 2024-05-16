@@ -8,9 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 @NoArgsConstructor
 public enum EnumRole implements GrantedAuthority {
   
-   ADMIN("ROLE_ADMIN"),
-    USER("ROLE_USER"),
-    TECHNICIAN("ROLE_TECHNICIAN");
+   ADMIN("Role ADMIN"),
+    USER("Role USER"),
+    TECHNICIAN("Role TECHNICIAN");
 
     private String authority;
 

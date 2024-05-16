@@ -67,10 +67,11 @@ public class TecnicoController {
 
     @Operation(summary = "Busca um técnico pelo ID", method = "GET")
     @GetMapping("/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable @Valid Long id) {
+    public ResponseEntity<TecnicoResponse> findById(@PathVariable @Valid Long id) {
         Tecnico tecnico = tecnicoService.findById(id);
         if (tecnico != null) {
-            return ResponseEntity.ok(tecnico);
+            TecnicoResponse tecnicoResponse = new TecnicoResponse();
+            return ResponseEntity.ok(tecnicoResponse);
         } else {
             return ResponseEntity.notFound().build();
         }
