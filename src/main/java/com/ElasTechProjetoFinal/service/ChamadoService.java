@@ -1,8 +1,8 @@
 package com.ElasTechProjetoFinal.service;
 
 import com.ElasTechProjetoFinal.model.Chamado;
-import com.ElasTechProjetoFinal.model.EnumSetor;
 import com.ElasTechProjetoFinal.model.Prioridade;
+import com.ElasTechProjetoFinal.model.Setor;
 import com.ElasTechProjetoFinal.repository.ChamadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,8 +49,8 @@ public class ChamadoService {
         }
 
         if(params.containsKey("setor")) {
-            EnumSetor novoSetor = EnumSetor.valueOf((String) params.get("setor"));
-            chamado.setSetor(novoSetor);
+
+            chamado.setSetor((Setor) params.get("setor"));
         }
         if(params.containsKey("prioridade")) {
             chamado.setPrioridade((Prioridade) params.get("prioridade"));

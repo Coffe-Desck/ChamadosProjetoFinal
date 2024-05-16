@@ -55,8 +55,17 @@ public class AdminService {
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
+    public Admin findById(Long id) {
+        Optional<Admin> resultado = this.adminRepository.findById(id);
+        if (resultado.isEmpty()) {
+            throw new RuntimeException(" O técnico não foi encontrado");
+        } else {
+            return resultado.get();
+        }
+    }
+
     public Admin updateById(Long id, Admin admin) {
-//        this.findById(id);
+        this.findById(id);
         admin.setId(id);
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
         if (adminExistente.isPresent() && (adminExistente.get().getId() != admin.getId())) {
@@ -67,9 +76,6 @@ public class AdminService {
         }
     }
 
-    public Optional<Tecnico> findTecById(Long id) {
-        return tecnicoRepository.findById(id);
-    }
 
     public Tecnico saveTecnico( Tecnico tecnico) {
         Optional<Tecnico> tecnicoExistente = tecnicoRepository.findByEmailContainingIgnoreCase(tecnico.getEmail());

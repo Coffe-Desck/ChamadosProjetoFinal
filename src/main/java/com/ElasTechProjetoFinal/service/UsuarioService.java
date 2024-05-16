@@ -68,11 +68,6 @@ public class UsuarioService {
             return resultado.get();
         }
     }
-    public Usuario deleteById(Long id) {
-        Usuario usuario= findById(id);
-        this.usuarioRepository.delete(usuario);
-        return usuario;
-    }
 
     public Usuario updateById(Long id, Usuario usuario) {
         this.findById(id);
@@ -84,6 +79,12 @@ public class UsuarioService {
             usuario.setSenha(criptografarSenha(usuario.getSenha()));
             return usuarioRepository.save(usuario);
         }
+    }
+
+    public Usuario deleteById(Long id) {
+        Usuario usuario= findById(id);
+        this.usuarioRepository.delete(usuario);
+        return usuario;
     }
 
 }

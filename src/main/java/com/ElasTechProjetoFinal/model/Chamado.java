@@ -1,15 +1,14 @@
 package com.ElasTechProjetoFinal.model;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
+
 
 
 import java.util.UUID;
@@ -47,12 +46,16 @@ public class Chamado {
     @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
 
-    @Enumerated(EnumType.STRING)
-    @JoinColumn(name = "setor")
-    private EnumSetor setor;
+    @ManyToOne
+    @JoinColumn(name = "setor_id")
+    private Setor setor;
 
     @ManyToOne
     @JoinColumn(name = "prioridade_id")
     private Prioridade prioridade;
+
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private Status status;
 
 }

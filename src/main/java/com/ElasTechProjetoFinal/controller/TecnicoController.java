@@ -57,14 +57,6 @@ public class TecnicoController {
         }
     }
 
-    @Operation(summary = "Atualiza um técnico pelo ID", method = "PUT")
-    @PutMapping("/{id}")
-    public ResponseEntity<TecnicoResponse> updateById(@PathVariable @Valid Long id, @RequestBody @Valid Tecnico tecnico) {
-        Tecnico updatedTecnico = tecnicoService.updateById(id, tecnico);
-        TecnicoResponse resposta = mapper.convertValue(updatedTecnico, TecnicoResponse.class);
-        return ResponseEntity.ok(resposta);
-    }
-
     @Operation(summary = "Busca um técnico pelo ID", method = "GET")
     @GetMapping("/{id}")
     public ResponseEntity<TecnicoResponse> findById(@PathVariable @Valid Long id) {
@@ -76,6 +68,15 @@ public class TecnicoController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @Operation(summary = "Atualiza um técnico pelo ID", method = "PUT")
+    @PutMapping("/{id}")
+    public ResponseEntity<TecnicoResponse> updateById(@PathVariable @Valid Long id, @RequestBody @Valid Tecnico tecnico) {
+        Tecnico updatedTecnico = tecnicoService.updateById(id, tecnico);
+        TecnicoResponse resposta = mapper.convertValue(updatedTecnico, TecnicoResponse.class);
+        return ResponseEntity.ok(resposta);
+    }
+
 
     @Operation(summary = "Deleta um técnico pelo ID", method = "DELETE")
     @DeleteMapping("/{id}")
