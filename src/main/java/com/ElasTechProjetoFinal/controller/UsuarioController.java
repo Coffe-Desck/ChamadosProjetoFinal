@@ -65,15 +65,6 @@ public class UsuarioController {
         }
     }
 
-    @Operation(summary = "Atualiza um usuário pelo ID", method = "PUT")
-    @PatchMapping("/{id}")
-    public ResponseEntity<UsuarioResponse> updateById(@PathVariable @Valid Long id, @RequestBody @Valid Usuario usuario) {
-        Usuario updatedUsuario = usuarioService.updateById(id, usuario);
-        UsuarioResponse resposta = mapper.convertValue(updatedUsuario, UsuarioResponse.class);
-        return ResponseEntity.ok(resposta);
-
-    }
-
 
     @Operation(summary = "Busca um usuário pelo ID", method = "GET")
     @GetMapping("/{id}")
@@ -85,6 +76,15 @@ public class UsuarioController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @Operation(summary = "Atualiza um usuário pelo ID", method = "PUT")
+    @PutMapping("/{id}")
+    public ResponseEntity<UsuarioResponse> updateById(@PathVariable @Valid Long id, @RequestBody @Valid Usuario usuario) {
+        Usuario updatedUsuario = usuarioService.updateById(id, usuario);
+        UsuarioResponse resposta = mapper.convertValue(updatedUsuario, UsuarioResponse.class);
+        return ResponseEntity.ok(resposta);
+
     }
 
     @Operation(summary = "Deleta um usuário pelo ID", method = "DELETE")

@@ -1,7 +1,9 @@
 package com.ElasTechProjetoFinal.controller;
 
-import com.ElasTechProjetoFinal.model.EnumSetor;
+import com.ElasTechProjetoFinal.model.Setor;
 import com.ElasTechProjetoFinal.service.GerenciamentoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,34 +13,44 @@ import java.util.List;
 @RestController
 @RequestMapping("/setores")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@Tag(name = "Setor")
 public class SetorController {
 
     @Autowired
     private GerenciamentoService gerenciamentoService;
 
+
+    @Operation(summary = "Cria um setor", method = "POST")
     @PostMapping()
-    public EnumSetor save(@RequestBody @Valid EnumSetor enumSetor) {
-        return gerenciamentoService.save(enumSetor);
+    public Setor save(@RequestBody @Valid Setor setor) {
+        return gerenciamentoService.save(setor);
     }
 
+
+    @Operation(summary = "Busca todos os setores", method = "GET")
     @GetMapping()
-    public List<EnumSetor> findAll() {
+    public List<Setor> findAll() {
         return this.gerenciamentoService.findAll();
     }
 
-    @GetMapping("/{nome}")
-    public EnumSetor findByName(@PathVariable String nome) {
-        return this.gerenciamentoService.findByName(nome);
+
+    @Operation(summary = "Busca um setor pelo ID", method = "GET")
+    @GetMapping("/{id}")
+    public Setor findById(@PathVariable Long id) {
+        return this.gerenciamentoService.findByIdSetor(id);
     }
 
 
-    @DeleteMapping("/{nome}")
-    public EnumSetor deleteByName(@PathVariable String nome) {
-        return this.gerenciamentoService.deleteByName(nome);
+    @Operation(summary = "Atualiza um setor pelo ID", method = "PUT")
+    @PutMapping("/{id}")
+    public Setor updateById(@PathVariable @Valid Long id, @RequestBody Setor setor) {
+        return this.gerenciamentoService.updateById(id, setor);
     }
 
-    @PutMapping("/{nome}")
-    public EnumSetor updateByName(@PathVariable @Valid String nome, @RequestBody EnumSetor enumSetor) {
-        return this.gerenciamentoService.updateByName(nome, enumSetor);
+
+    @Operation(summary = "Deleta um setor pelo ID", method = "DELETE")
+    @DeleteMapping("/{id}")
+    public Setor deleteById(@PathVariable Long id) {
+        return this.gerenciamentoService.deleteById(id);
     }
 }

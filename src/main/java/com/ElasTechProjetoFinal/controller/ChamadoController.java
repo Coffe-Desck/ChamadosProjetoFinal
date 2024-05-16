@@ -41,13 +41,13 @@ public class ChamadoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(chamadoResponse);
     }
 
+
     @Operation(summary = "Busca todos os chamados", method = "GET")
     @GetMapping()
     public ResponseEntity<List<ChamadoResponse>> findAll() {
         List<Chamado> chamados = chamadoService.findAll();
         List<ChamadoResponse> chamadoResponses = chamados.stream()
-                .map(chamado -> new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
-                        chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(), chamado.getUsuario()))
+                .map(chamado -> mapper.convertValue(chamado, ChamadoResponse.class))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(chamadoResponses);
     }
@@ -56,29 +56,27 @@ public class ChamadoController {
     @GetMapping("/{id}")
     public ResponseEntity<ChamadoResponse> findById(@PathVariable UUID id) {
         Chamado chamado = chamadoService.findById(id);
-        if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
-                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(), chamado.getUsuario());
+        if(chamado != null) {
+            ChamadoResponse chamadoResponse = mapper.convertValue(chamado, ChamadoResponse.class);
             return ResponseEntity.ok(chamadoResponse);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @Operation(summary = "Atualiza um chamado por id", method = "PATCH")
-    @PatchMapping("/{id}")
+    @Operation(summary = "Atualiza um chamado por id", method = "PUT")
+    @PutMapping("/{id}")
     public ResponseEntity<ChamadoResponse> update(@PathVariable UUID id, @RequestBody Map<String, Object> params) {
         Chamado chamado = chamadoService.update(id, params);
-        if (chamado != null) {
-            ChamadoResponse chamadoResponse = new ChamadoResponse(chamado.getId(), chamado.getTitulo(), chamado.getDescricao(), chamado.getSetor(),
-                    chamado.getPrioridade(), chamado.getDataInicio(), chamado.getDataTermino(),chamado.getUsuario());
+        if(chamado != null) {
+            ChamadoResponse chamadoResponse = mapper.convertValue(chamado, ChamadoResponse.class);
             return ResponseEntity.accepted().body(chamadoResponse);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @Operation(summary = "Deleta um chamado", method = "DELETE")
+    @Operation(summary = "Deleta um chamado pelo Id", method = "DELETE")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
         chamadoService.deleteById(id);
