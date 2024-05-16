@@ -37,7 +37,7 @@ public class UsuarioController {
     }
 
     @Operation(summary = "Cria um usuário", method = "POST")
-    @PostMapping("/cadastrar")
+    @PostMapping()
     public ResponseEntity<Usuario> save(@RequestBody @Valid Usuario usuario) {
         Usuario savedUsuario = usuarioService.save(usuario);
         emailService.enviarEmail(usuario.getEmail());
@@ -45,14 +45,14 @@ public class UsuarioController {
     }
 
     @Operation(summary = "Realiza o login de um usuário", method = "POST")
-    @PostMapping("/logar")
+    @PostMapping("/login")
     public ResponseEntity<UsuarioLogin> login(@RequestBody @Valid UsuarioLogin usuarioLogin) {
         UsuarioLogin usuarioAutenticado = usuarioService.autenticarUsuario(usuarioLogin);
         return ResponseEntity.ok(usuarioAutenticado);
     }
 
     @Operation(summary = "Busca todos os usuários", method = "GET")
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<UsuarioResponse>> findAll() {
         List<Usuario> usuarios = usuarioService.findAll();
         if (!usuarios.isEmpty()) {
@@ -77,10 +77,11 @@ public class UsuarioController {
 
     @Operation(summary = "Busca um usuário pelo ID", method = "GET")
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> findById(@PathVariable @Valid Long id) {
+    public ResponseEntity<UsuarioResponse> findById(@PathVariable @Valid Long id) {
         Usuario usuario = usuarioService.findById(id);
         if (usuario != null) {
-            return ResponseEntity.ok(usuario);
+            UsuarioResponse usuarioResponse = new UsuarioResponse();
+            return ResponseEntity.ok(usuarioResponse);
         } else {
             return ResponseEntity.notFound().build();
         }

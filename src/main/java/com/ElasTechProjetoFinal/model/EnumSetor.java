@@ -13,10 +13,22 @@ public enum EnumSetor implements GrantedAuthority {
 
     private final String authority;
 
-    EnumSetor(String authority){this.authority = authority;}
+    EnumSetor(String authority) {
+        this.authority = authority;
+    }
 
     @Override
     public String getAuthority() {
         return authority;
     }
+
+//    public static EnumSetor fromString(String text) {
+//        for(EnumSetor setor : EnumSetor.values()) {
+//            if(setor.getAuthority().equalsIgnoreCase(text)) {
+//                return setor;
+//            }
+//        }
+//        throw  new RuntimeException(" Setor inválido: " + text);
+//    }
+
 }

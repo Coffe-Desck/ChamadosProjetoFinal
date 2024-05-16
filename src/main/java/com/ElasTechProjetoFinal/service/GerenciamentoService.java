@@ -1,13 +1,14 @@
 package com.ElasTechProjetoFinal.service;
 
 
+import com.ElasTechProjetoFinal.model.EnumSetor;
 import com.ElasTechProjetoFinal.model.Prioridade;
-import com.ElasTechProjetoFinal.model.Setor;
 import com.ElasTechProjetoFinal.repository.PrioridadeRepository;
 import com.ElasTechProjetoFinal.repository.SetorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,46 +18,42 @@ public class GerenciamentoService {
     private SetorRepository setorRepository;
 
 
-    public Setor save(Setor setor) {
-
-        Optional<Setor> setorExistente = setorRepository.findByNomeContainingIgnoreCase(setor.getNome());
-        if (setorExistente.isPresent()) {
-            throw new RuntimeException("O Setor ja foi cadastrado");
-        }else {
-            return setorRepository.save(setor);
+    public EnumSetor save(EnumSetor enumSetor) {
+        Optional<EnumSetor> setorExistente = setorRepository.findByNome(enumSetor.getAuthority());
+        if(setorExistente.isPresent()) {
+            throw new RuntimeException("O Setor já foi cadastrado");
+        } else {
+            setorRepository.save(enumSetor);
+            return enumSetor;
         }
+
+//        Optional<Setor> setorExistente = setorRepository.findByNomeContainingIgnoreCase(setor.getNome());
+//        if (setorExistente.isPresent()) {
+//            throw new RuntimeException("O Setor ja foi cadastrado");
+//        }else {
+//            return setorRepository.save(setor);
+//        }
     }
 
-    public List<Setor> findAll() {
-        List<Setor> setor = setorRepository.findAll();
-        return setor;
+    public List<EnumSetor> findAll() {
+        return Arrays.asList(EnumSetor.values());
     }
 
-    public Setor findByIdSetor(Long id) {
-        Optional<Setor> setor = this.setorRepository.findById(id);
-        if (setor.isPresent()) {
-            return setor.get();
-        }else{
-            throw new RuntimeException("O setor não foi encontado");
-        }
+    public EnumSetor findByName(String nome) {
+        Optional<EnumSetor> setor = this.setorRepository.findByNome(nome);
+       return setor.orElseThrow(() -> new RuntimeException("O Setor ja foi cadastrado"));
     }
 
-    public Setor deleteById(Long id) {
-        Setor setor = findByIdSetor(id);
+    public EnumSetor deleteByName(String nome) {
+        EnumSetor setor = findByName(nome);
         this.setorRepository.delete(setor);
         return setor;
     }
 
-    public Setor updateById(Long id, Setor setor) {
-        this.findByIdSetor(id);
-        setor.setId(id);
-        Optional<Setor> setorExistente = setorRepository.findByNomeContainingIgnoreCase(setor.getNome());
-        if (setorExistente.isPresent() && (setorExistente.get().getId() != setor.getId())) {
-            throw new RuntimeException("O Setor ja foi cadastrado");
-        } else {
-            return setorRepository.save(setor);
-        }
-
+    public EnumSetor updateByName(String nome, EnumSetor enumSetor) {
+        findByName(nome);
+        setorRepository.save(enumSetor);
+        return enumSetor;
     }
 
     @Autowired

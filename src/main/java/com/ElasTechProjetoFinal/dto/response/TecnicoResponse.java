@@ -1,6 +1,6 @@
 package com.ElasTechProjetoFinal.dto.response;
 
-import com.ElasTechProjetoFinal.model.Chamado;
+import com.ElasTechProjetoFinal.model.EnumRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,5 +20,6 @@ public class TecnicoResponse {
     private String nome;
     private String email;
     private String senha;
+    private EnumRole role;
     private Set<ChamadoResponse> chamados;
 }

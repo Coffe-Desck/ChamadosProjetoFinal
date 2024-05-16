@@ -3,15 +3,14 @@ package com.ElasTechProjetoFinal.service;
 
 import com.ElasTechProjetoFinal.model.*;
 import com.ElasTechProjetoFinal.repository.AdminRepository;
-import com.ElasTechProjetoFinal.repository.UsuarioRepository;
+import com.ElasTechProjetoFinal.repository.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
+
 
 @Service
 public class AdminService {
@@ -19,12 +18,8 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
     @Autowired
-    private UsuarioService usuarioService;
-    @Autowired
-    private TecnicoService tecnicoService;
-    @Autowired
-    private ChamadoService chamadoService;
-    private UsuarioRepository usuarioRepository;
+    private TecnicoRepository tecnicoRepository;
+
 
     public Admin save(Admin admin) {
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
@@ -60,7 +55,7 @@ public class AdminService {
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
-    public Admin update(Long id, Admin admin) {
+    public Admin updateById(Long id, Admin admin) {
 //        this.findById(id);
         admin.setId(id);
         Optional<Admin> adminExistente = adminRepository.findByEmailContainingIgnoreCase(admin.getEmail());
@@ -72,13 +67,31 @@ public class AdminService {
         }
     }
 
-    public Optional<Usuario> findUserByID(Long id) {
-        return usuarioRepository.findById(id);
+    public Optional<Tecnico> findTecById(Long id) {
+        return tecnicoRepository.findById(id);
+    }
 
+    public Tecnico saveTecnico( Tecnico tecnico) {
+        Optional<Tecnico> tecnicoExistente = tecnicoRepository.findByEmailContainingIgnoreCase(tecnico.getEmail());
+        if(tecnicoExistente.isPresent()) {
+            throw new RuntimeException("O e-mail já está cadastrado");
+        }
+        return tecnicoRepository.save(tecnico);
     }
 
 
+    public Tecnico updateTecnico(Long id, String novoEmail) {
+        Tecnico tecnicoExiste = tecnicoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(" Técnico não encontrado"));
 
+        Optional<Tecnico> emailJaCadastrado = tecnicoRepository.findByEmailContainingIgnoreCase(novoEmail);
+        if(emailJaCadastrado.isPresent() && !emailJaCadastrado.get().getId().equals(id)){
+            throw new RuntimeException("O e-mail já está cadastrado para outro técnico");
+        }
 
+            tecnicoExiste.setEmail(novoEmail);
+
+        return tecnicoRepository.save(tecnicoExiste);
+    }
 
 }

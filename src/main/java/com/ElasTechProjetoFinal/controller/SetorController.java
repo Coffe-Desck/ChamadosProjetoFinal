@@ -1,6 +1,6 @@
 package com.ElasTechProjetoFinal.controller;
 
-import com.ElasTechProjetoFinal.model.Setor;
+import com.ElasTechProjetoFinal.model.EnumSetor;
 import com.ElasTechProjetoFinal.service.GerenciamentoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,41 +9,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gerenciamento")
+@RequestMapping("/setores")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SetorController {
 
     @Autowired
     private GerenciamentoService gerenciamentoService;
 
-    @PostMapping("/cadastrosetor")
-    public Setor save(@RequestBody @Valid Setor setor) {
-        return this.gerenciamentoService.save(setor);
+    @PostMapping()
+    public EnumSetor save(@RequestBody @Valid EnumSetor enumSetor) {
+        return gerenciamentoService.save(enumSetor);
     }
 
-    @GetMapping("/setor/{id}")
-    public Setor findById(@PathVariable Long id) {
-        return this.gerenciamentoService.findByIdSetor(id);
-    }
-
-    @GetMapping("/todossetores")
-    public List<Setor> findAll() {
+    @GetMapping()
+    public List<EnumSetor> findAll() {
         return this.gerenciamentoService.findAll();
     }
 
-    @DeleteMapping("/deletarsetor/{id}")
-    public Setor deleteById(@PathVariable Long id) {
-        return this.gerenciamentoService.deleteById(id);
-    }
-
-    @PutMapping("/alterarsetor/{id}")
-    public Setor updateById(@PathVariable @Valid Long id, @RequestBody Setor setor) {
-        return this.gerenciamentoService.updateById(id, setor);
+    @GetMapping("/{nome}")
+    public EnumSetor findByName(@PathVariable String nome) {
+        return this.gerenciamentoService.findByName(nome);
     }
 
 
+    @DeleteMapping("/{nome}")
+    public EnumSetor deleteByName(@PathVariable String nome) {
+        return this.gerenciamentoService.deleteByName(nome);
+    }
 
-
-
-
+    @PutMapping("/{nome}")
+    public EnumSetor updateByName(@PathVariable @Valid String nome, @RequestBody EnumSetor enumSetor) {
+        return this.gerenciamentoService.updateByName(nome, enumSetor);
+    }
 }

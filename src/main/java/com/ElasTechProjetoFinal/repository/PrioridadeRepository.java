@@ -1,7 +1,6 @@
 package com.ElasTechProjetoFinal.repository;
 
 import com.ElasTechProjetoFinal.model.Prioridade;
-import com.ElasTechProjetoFinal.model.Setor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

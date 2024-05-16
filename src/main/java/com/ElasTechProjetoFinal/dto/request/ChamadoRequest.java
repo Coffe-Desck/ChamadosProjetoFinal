@@ -1,5 +1,6 @@
 package com.ElasTechProjetoFinal.dto.request;
 
+import com.ElasTechProjetoFinal.model.EnumSetor;
 import com.ElasTechProjetoFinal.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ public class ChamadoRequest {
 
     @NotNull
     @JsonProperty("setor")
-    private String setor;
+    private EnumSetor setor;
 
     @NotNull
     @JsonProperty("usuario")

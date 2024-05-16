@@ -2,17 +2,14 @@ package com.ElasTechProjetoFinal.dto.request;
 
 import com.ElasTechProjetoFinal.model.Chamado;
 import com.ElasTechProjetoFinal.model.EnumRole;
+import com.ElasTechProjetoFinal.model.Tecnico;
+import com.ElasTechProjetoFinal.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Set;
 
-@Setter
-@Getter
-public class UsuarioRequest {
-
+public class AdminRequest {
     @NotBlank
     @JsonProperty("nome")
     private String nome;
@@ -29,14 +26,12 @@ public class UsuarioRequest {
     @JsonProperty("role")
     private EnumRole role;
 
-    @NotBlank
-    @JsonProperty("usuarioId")
-    private Long usuarioId;
-
-    @NotBlank
-    @JsonProperty("tecnicoId")
-    private Long tecnicoId;
-
-    @JsonProperty("chamados")
+    @JsonProperty("chamado")
     private Set<Chamado> chamado;
+
+    @JsonProperty("usuario")
+    private Set<Usuario> usuario;
+
+    @JsonProperty("tecnico")
+    private Set<Tecnico> tecnico;
 }
