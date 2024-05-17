@@ -1,6 +1,8 @@
 package com.ElasTechProjetoFinal.service;
 
 import com.ElasTechProjetoFinal.model.Chamado;
+import com.ElasTechProjetoFinal.model.Prioridade;
+import com.ElasTechProjetoFinal.model.Setor;
 import com.ElasTechProjetoFinal.repository.ChamadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +22,11 @@ public class ChamadoService {
         return this.chamadoRepository.save(chamado);
     }
 
+
     public List<Chamado> findAll() {
         return chamadoRepository.findAll();
     }
+
 
     public Chamado findById(UUID id) {
         Optional<Chamado> resultado = this.chamadoRepository.findById(id);
@@ -43,11 +47,13 @@ public class ChamadoService {
         if (params.containsKey("descricao")) {
             chamado.setDescricao((String) params.get("descricao"));
         }
+
         if(params.containsKey("setor")) {
-            chamado.setSetor((String) params.get("setor"));
+
+            chamado.setSetor((Setor) params.get("setor"));
         }
         if(params.containsKey("prioridade")) {
-            chamado.setPrioridade((String) params.get("prioridade"));
+            chamado.setPrioridade((Prioridade) params.get("prioridade"));
         }
 
         return chamadoRepository.save(chamado);

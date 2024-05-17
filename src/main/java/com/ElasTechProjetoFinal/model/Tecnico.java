@@ -33,4 +33,8 @@ public class Tecnico {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "chamadoId")
     private Set<Chamado> chamados;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 50, nullable = false)
+    private EnumRole role;
 }

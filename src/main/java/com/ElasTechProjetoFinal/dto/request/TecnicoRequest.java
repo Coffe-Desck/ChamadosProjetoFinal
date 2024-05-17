@@ -1,6 +1,7 @@
 package com.ElasTechProjetoFinal.dto.request;
 
 import com.ElasTechProjetoFinal.model.Chamado;
+import com.ElasTechProjetoFinal.model.EnumRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -25,7 +26,11 @@ public class TecnicoRequest {
     @JsonProperty("senha")
     private String senha;
 
+    @NotBlank
+    @JsonProperty("role")
+    private EnumRole role;
+
     @JsonProperty("chamados")
-   private Set<Chamado> chamado;
+    private Set<Chamado> chamado;
 
 }

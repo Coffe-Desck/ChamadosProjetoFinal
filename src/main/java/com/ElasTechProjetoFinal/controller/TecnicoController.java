@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/tecnicos")
 @Tag(name = "Tecnicos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TecnicoController {
 
     private final TecnicoService tecnicoService;
@@ -36,7 +37,7 @@ public class TecnicoController {
     }
 
     @Operation(summary = "Realiza o login de um técnico", method = "POST")
-    @PostMapping("/login")
+    @PostMapping("/logar")
     public ResponseEntity<UsuarioLogin> login(@RequestBody @Valid UsuarioLogin usuarioLogin) {
         UsuarioLogin usuarioAutenticado = tecnicoService.autenticarUsuario(usuarioLogin);
         return ResponseEntity.ok(usuarioAutenticado);
@@ -56,6 +57,18 @@ public class TecnicoController {
         }
     }
 
+    @Operation(summary = "Busca um técnico pelo ID", method = "GET")
+    @GetMapping("/{id}")
+    public ResponseEntity<TecnicoResponse> findById(@PathVariable @Valid Long id) {
+        Tecnico tecnico = tecnicoService.findById(id);
+        if (tecnico != null) {
+            TecnicoResponse tecnicoResponse = new TecnicoResponse();
+            return ResponseEntity.ok(tecnicoResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @Operation(summary = "Atualiza um técnico pelo ID", method = "PUT")
     @PutMapping("/{id}")
     public ResponseEntity<TecnicoResponse> updateById(@PathVariable @Valid Long id, @RequestBody @Valid Tecnico tecnico) {
@@ -64,16 +77,6 @@ public class TecnicoController {
         return ResponseEntity.ok(resposta);
     }
 
-    @Operation(summary = "Busca um técnico pelo ID", method = "GET")
-    @GetMapping("/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable @Valid Long id) {
-        Tecnico tecnico = tecnicoService.findById(id);
-        if (tecnico != null) {
-            return ResponseEntity.ok(tecnico);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
     @Operation(summary = "Deleta um técnico pelo ID", method = "DELETE")
     @DeleteMapping("/{id}")

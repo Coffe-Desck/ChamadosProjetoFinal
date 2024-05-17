@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -31,10 +29,20 @@ public class Admin {
     @Size(min = 8)
     private String senha;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 50, nullable = false)
+    private EnumRole role;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "chamadoId")
-    private Set<Chamado> chamados;
-
+//    @OneToMany(mappedBy = "chamados", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "chamado_Id")
+//    private Set<Chamado> chamados;
+//
+//    @OneToMany(mappedBy = "usuarios", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "clientes_Id")
+//    private Set<Usuario> usuarios;
+//
+//    @OneToMany(mappedBy = "tecnicos", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "tecnicos_Id")
+//    private Set<Tecnico> tecnicos;
 
 }

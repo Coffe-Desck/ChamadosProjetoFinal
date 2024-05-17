@@ -18,6 +18,6 @@ public class Prioridade {
     private Long id;
 
     @Column(length = 255, nullable = false)
-    private String prioridade;
+    private String nome;
 
 }

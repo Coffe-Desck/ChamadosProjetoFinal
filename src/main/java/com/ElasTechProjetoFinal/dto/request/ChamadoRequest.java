@@ -1,5 +1,7 @@
 package com.ElasTechProjetoFinal.dto.request;
 
+import com.ElasTechProjetoFinal.model.Setor;
+import com.ElasTechProjetoFinal.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,7 +25,11 @@ public class ChamadoRequest {
 
     @NotNull
     @JsonProperty("setor")
-    private String setor;
+    private Setor setor;
+
+    @NotNull
+    @JsonProperty("usuario")
+    private Usuario usuario;
 
     @NotNull
     @JsonProperty("prioridade")

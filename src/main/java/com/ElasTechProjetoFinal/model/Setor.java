@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,11 +14,10 @@ import lombok.Setter;
 @Setter
 @Table(name = "Setor")
 public class Setor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 255, nullable = false)
-    private String setor;
+    private String nome;
 }
