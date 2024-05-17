@@ -18,6 +18,6 @@ public class Setor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "O campo setor não pode ser nulo")
+   
     private String nome;
 }
