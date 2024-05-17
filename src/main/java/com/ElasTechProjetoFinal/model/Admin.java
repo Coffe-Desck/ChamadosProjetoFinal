@@ -31,7 +31,7 @@ public class Admin {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 50, nullable = false)
-    private EnumRole role;
+    private EnumRole role = EnumRole.ADMIN;
 
 //    @OneToMany(mappedBy = "chamados", cascade = CascadeType.REMOVE)
 //    @JoinColumn(name = "chamado_Id")
