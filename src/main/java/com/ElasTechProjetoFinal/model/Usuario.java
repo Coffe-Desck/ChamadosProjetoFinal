@@ -35,7 +35,7 @@ public class Usuario {
     private String senha;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 50, nullable = false)
+   // @Column(length = 50, nullable = false)
     private EnumRole role;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
