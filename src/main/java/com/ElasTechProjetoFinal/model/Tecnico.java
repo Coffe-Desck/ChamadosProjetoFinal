@@ -36,5 +36,5 @@ public class Tecnico {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 50, nullable = false)
-    private EnumRole role;
+    private EnumRole role = EnumRole.ADMIN;
 }
