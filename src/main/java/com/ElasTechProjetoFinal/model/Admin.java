@@ -33,16 +33,16 @@ public class Admin {
     @Column(length = 50, nullable = false)
     private EnumRole role;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "chamadoId")
-    private Set<Chamado> chamados;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientes_Id")
-    private Set<Usuario> usuarios;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tecnicos_Id")
-    private Set<Tecnico> tecnicos;
+//    @OneToMany(mappedBy = "chamados", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "chamado_Id")
+//    private Set<Chamado> chamados;
+//
+//    @OneToMany(mappedBy = "usuarios", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "clientes_Id")
+//    private Set<Usuario> usuarios;
+//
+//    @OneToMany(mappedBy = "tecnicos", cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "tecnicos_Id")
+//    private Set<Tecnico> tecnicos;
 
 }
