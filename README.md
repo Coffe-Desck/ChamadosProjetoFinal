@@ -45,6 +45,10 @@ Este projeto consiste no desenvolvimento de um sistema completo de chamados téc
 essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
   ![Gif tela inicial](https://i.imgur.com/tSMgwkO.png)
 
+### ✨Demostração do sistema
+[Video demostração](https://www.youtube.com/watch?v=7pB_NXm795w&t=1s)
+
+
 ### 🎲 DER Banco de dados
  ![Gif tela inicial](https://i.imgur.com/y7gIgwR.png)
 
