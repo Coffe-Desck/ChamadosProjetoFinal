@@ -42,9 +42,7 @@ Este projeto consiste no desenvolvimento de um sistema completo de chamados téc
 - Dados essenciais como número de chamados em aberto, em execução e aguardando.
 - Gerenciamento de setores da empresa e tipos de prioridade.
 - Essa tela oferece uma visão abrangente do uso do sistema, fornecendo dados
-essenciais, como o número de chamados em aberto, em execução e
-aguardando. Além disso, permite o gerenciamento de elementos-chave do
-sistema, como os setores da empresa e os tipos de prioridade.
+essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
   ![Gif tela inicial](https://i.imgur.com/tSMgwkO.png)
 
 ### 🎲 DER Banco de dados
