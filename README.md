@@ -46,7 +46,7 @@ essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
   ![Gif tela inicial](https://i.imgur.com/tSMgwkO.png)
 
 ### 🎲 DER Banco de dados
- ![Gif tela inicial](https://i.imgur.com/j3zd5mg.png)
+ ![Gif tela inicial](https://i.imgur.com/y7gIgwR.png)
 
 
 # 🍃Especificações do Sistema Utilizadas
