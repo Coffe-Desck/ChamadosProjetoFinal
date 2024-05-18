@@ -74,8 +74,13 @@ essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
 <br>
 - Front End
 <div style="display: flex; align-items: center;">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50" height="50"/>       
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" width="50" height="50" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="50" height="50" />          
 </div>
+- IDES
+<div style="display: flex; align-items: center;">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg" width="50" height="50" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="50" height="50" />
+</div>         
+          
 
 ### 💅Repositorio Front end
 [Link do github](https://github.com/Nataly-Carvalho/CoffeDesck-front)
@@ -106,22 +111,50 @@ essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
 
 # ‼️Como Executar o Projeto
 - Clone o repositório do GitHub:
--     git clone https://github.com/seu-usuario/nome-do-repositorio.git
+-     git clone https://github.com/Nataly-Carvalho/ChamadosProjetoFinal
 - Importe o projeto para sua IDE favorita.
-- Configure o banco de dados MySQL conforme as configurações do arquivo application.properties.
+- Configure o banco de dados MySQL conforme as configurações do arquivo application-dev.properties.
 - Execute o projeto.
 # Equipe
-
-☕[Lays Sousa](https://github.com/laregn)
-<br>
-☕[Juliana Rodrigues](https://github.com/jucrodrigues)
-<br>
-☕[Gracielle Pereira](https://github.com/Gracielle-Pereira)
-<br>
-☕[Bianca Bareto](https://github.com/BiancalBarreto)
-<br>
-☕[Nataly Carvalho](https://github.com/Nataly-Carvalho?tab=repositories)
-
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/laregn">
+        <img src="https://avatars.githubusercontent.com/laregn?s=100" alt="Lays Sousa"/><br>
+        Lays Sousa
+      </a><br>
+      <a href="https://www.linkedin.com/in/laysregn/">LinkedIn</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/jucrodrigues">
+        <img src="https://avatars.githubusercontent.com/jucrodrigues?s=100" alt="Juliana Rodrigues"/><br>
+        Juliana Rodrigues
+      </a><br>
+      <a href="https://www.linkedin.com/in/juliana-crodrigues/">LinkedIn</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Gracielle-Pereira">
+        <img src="https://avatars.githubusercontent.com/Gracielle-Pereira?s=100" alt="Gracielle Pereira"/><br>
+        Gracielle Pereira
+      </a><br>
+      <a href="https://www.linkedin.com/in/gracielle-pereira/">LinkedIn</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/BiancalBarreto">
+        <img src="https://i.imgur.com/7nZB7MD.jpg?s=100" width="100" height="100" alt="Bianca Bareto"/><br>
+        Bianca Bareto
+      </a><br>
+      <a href="https://www.linkedin.com/in/biancaleandrobarreto/">LinkedIn</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Nataly-Carvalho?tab=repositories">
+        <img src="https://avatars.githubusercontent.com/Nataly-Carvalho?s=100" alt="Nataly Carvalho"/><br>
+        Nataly Carvalho
+      </a><br>
+      <a href="https://www.linkedin.com/in/nataly-carvalho-silva/">LinkedIn</a>
+    </td>
+  </tr>
+</table>
 
 
 
