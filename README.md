@@ -71,9 +71,33 @@ sistema, como os setores da empresa e os tipos de prioridade.
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="50" height="50"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50" height="50"/>       
 </div>
 
-          
+### Repositorio Front end
+[Link do github](https://github.com/Nataly-Carvalho/CoffeDesck-front)
 
-          
+### Documentação do Swagger
+[PDF com documentação](https://descomplica2-my.sharepoint.com/:b:/g/personal/nataly_2322956_aluno_faculdadedescomplica_com_br/Efaj8JCfFttJrcL6rchqPgABiVptaw_G01yZRySkR4KYPw?e=azQpaJ)
+
+# Dependencias Usadas no spring
+| **Group ID**                        | **Artifact ID**                              | **Version**  | **Scope**  | **Optional** |
+|-------------------------------------|----------------------------------------------|--------------|------------|--------------|
+| org.springframework.boot            | spring-boot-starter-data-jpa                 |              |            |              |
+| org.springframework.security        | spring-security-crypto                       |              |            |              |
+| org.springframework.boot            | spring-boot-starter-thymeleaf                |              |            |              |
+| org.springframework.boot            | spring-boot-starter-validation               |              |            |              |
+| org.springframework.boot            | spring-boot-starter-web                      |              |            |              |
+| org.thymeleaf.extras                | thymeleaf-extras-springsecurity6             |              |            |              |
+| org.springframework.boot            | spring-boot-devtools                         |              | runtime    | true         |
+| com.mysql                           | mysql-connector-j                            |              | runtime    |              |
+| org.projectlombok                   | lombok                                       |              |            | true         |
+| org.springdoc                       | springdoc-openapi-starter-webmvc-api         | 2.2.0        |            |              |
+| org.springdoc                       | springdoc-openapi-starter-webmvc-ui          | 2.2.0        |            |              |
+| io.springfox                        | springfox-boot-starter                       | 3.0.0        |            |              |
+| org.springframework.boot            | spring-boot-starter-test                     |              | test       |              |
+| org.springframework.security        | spring-security-test                         |              | test       |              |
+| org.springframework.boot            | spring-boot-starter-mail                     |              |            |              |
+| org.springframework.security        | spring-security-core                         |              |            |              |
+| org.postgresql                      | postgresql                                   |              |            |              |
+
 # Como Executar o Projeto
 - Clone o repositório do GitHub:
 -     git clone https://github.com/seu-usuario/nome-do-repositorio.git
