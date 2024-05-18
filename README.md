@@ -121,41 +121,57 @@ essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
     <td align="center">
       <a href="https://github.com/laregn">
         <img src="https://avatars.githubusercontent.com/laregn?s=100" alt="Lays Sousa"/><br>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub"/>
         Lays Sousa
       </a><br>
-      <a href="https://www.linkedin.com/in/laysregn/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/laysregn/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="20" height="20" alt="LinkedIn"/>
+        LinkedIn
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/jucrodrigues">
         <img src="https://avatars.githubusercontent.com/jucrodrigues?s=100" alt="Juliana Rodrigues"/><br>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub"/>
         Juliana Rodrigues
       </a><br>
-      <a href="https://www.linkedin.com/in/juliana-crodrigues/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/juliana-crodrigues/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="20" height="20" alt="LinkedIn"/>
+        LinkedIn
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/Gracielle-Pereira">
         <img src="https://avatars.githubusercontent.com/Gracielle-Pereira?s=100" alt="Gracielle Pereira"/><br>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub"/>
         Gracielle Pereira
       </a><br>
-      <a href="https://www.linkedin.com/in/gracielle-pereira/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/gracielle-pereira/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="20" height="20" alt="LinkedIn"/>
+        LinkedIn
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/BiancalBarreto">
         <img src="https://i.imgur.com/7nZB7MD.jpg?s=100" width="100" height="100" alt="Bianca Bareto"/><br>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub"/>
         Bianca Bareto
       </a><br>
-      <a href="https://www.linkedin.com/in/biancaleandrobarreto/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/biancaleandrobarreto/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="20" height="20" alt="LinkedIn"/>
+        LinkedIn
+      </a>
     </td>
     <td align="center">
       <a href="https://github.com/Nataly-Carvalho?tab=repositories">
         <img src="https://avatars.githubusercontent.com/Nataly-Carvalho?s=100" alt="Nataly Carvalho"/><br>
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub"/>
         Nataly Carvalho
       </a><br>
-      <a href="https://www.linkedin.com/in/nataly-carvalho-silva/">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/nataly-carvalho-silva/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="20" height="20" alt="LinkedIn"/>
+        LinkedIn
+      </a>
     </td>
   </tr>
 </table>
-
-
-
-
