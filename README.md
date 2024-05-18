@@ -40,9 +40,8 @@ Este projeto consiste no desenvolvimento de um sistema completo de chamados téc
 - Tela do Administrador
 - Visão abrangente do uso do sistema.
 - Dados essenciais como número de chamados em aberto, em execução e aguardando.
-- Gerenciamento de setores da empresa e tipos de prioridade.
-- Essa tela oferece uma visão abrangente do uso do sistema, fornecendo dados
-essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
+- Gerenciamento de tecnicos, Usuarios e Chamados.
+
   ![Gif tela inicial](https://i.imgur.com/tSMgwkO.png)
 
 ### ✨Demostração do sistema
