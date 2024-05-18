@@ -56,7 +56,7 @@ essenciais Além disso, CRUD de tecnico, Usuarios e Chamados
 - Banco de dados MySQL.
 - Versionamento no GitHub.
 - Disponibilização de uma API RESTful.
-- Angular para o back end
+- Angular para o Front end
 
 # 🤖Tecnologias Usadas
 - Back End
