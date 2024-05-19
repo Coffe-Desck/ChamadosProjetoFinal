@@ -43,6 +43,12 @@ public class PopularDados implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        jdbcTemplate.execute("ALTER TABLE admin ADD COLUMN IF NOT EXISTS role VARCHAR(50)");
+        jdbcTemplate.execute("UPDATE admin SET role = 'USER' WHERE role IS NULL");
+        jdbcTemplate.execute("ALTER TABLE admin ALTER COLUMN role SET NOT NULL");
+        jdbcTemplate.execute("ALTER TABLE admin ADD CONSTRAINT check_role CHECK (role IN ('ADMIN', 'USER', 'TECHNICIAN'))");
+
+
         //Setor-----------------------------------
         Optional<Setor> setor = setorRepository.findByNomeContainingIgnoreCase("Administrativo");
         if(setor.isEmpty()) {
