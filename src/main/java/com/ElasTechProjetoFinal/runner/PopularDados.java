@@ -58,7 +58,6 @@ public class PopularDados implements CommandLineRunner {
         // Adiciona a restrição NOT NULL e a restrição de verificação
         jdbcTemplate.execute("ALTER TABLE admin ALTER COLUMN role SET NOT NULL");
         jdbcTemplate.execute("ALTER TABLE admin ADD CONSTRAINT check_role CHECK (role IN ('ADMIN', 'USER', 'TECHNICIAN'))");
-    }
 
 
         //Setor-----------------------------------
