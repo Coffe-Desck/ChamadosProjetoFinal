@@ -3,6 +3,8 @@ import com.ElasTechProjetoFinal.model.*;
 import com.ElasTechProjetoFinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,10 +45,20 @@ public class PopularDados implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        jdbcTemplate.execute("ALTER TABLE admin ADD COLUMN IF NOT EXISTS role VARCHAR(50)");
+            try {
+            jdbcTemplate.execute("ALTER TABLE admin ADD COLUMN role VARCHAR(50)");
+        } catch (Exception e) {
+            // Ignora se a coluna já existir
+            System.out.println("Coluna 'role' já existe.");
+        }
+
+        // Atualiza as linhas existentes para garantir que role não tenha valores nulos
         jdbcTemplate.execute("UPDATE admin SET role = 'USER' WHERE role IS NULL");
+
+        // Adiciona a restrição NOT NULL e a restrição de verificação
         jdbcTemplate.execute("ALTER TABLE admin ALTER COLUMN role SET NOT NULL");
         jdbcTemplate.execute("ALTER TABLE admin ADD CONSTRAINT check_role CHECK (role IN ('ADMIN', 'USER', 'TECHNICIAN'))");
+    }
 
 
         //Setor-----------------------------------
